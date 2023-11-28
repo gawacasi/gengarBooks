@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
 import 'package:gengarfilm/common/style_txt.dart';
 
 class LoginPage extends StatelessWidget {
