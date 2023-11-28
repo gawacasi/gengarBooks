@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gengarbook/pages/homePage.dart';
+import 'package:gengarbook/pages/home_page.dart';
 
 void main() {
   runApp(
