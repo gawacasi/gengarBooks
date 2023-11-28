@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import 'package:gengarbook/common/style_txt.dart';
+import 'package:gengarfilm/common/style_txt.dart';
 
 class DateTimeWidget extends StatefulWidget {
   const DateTimeWidget({

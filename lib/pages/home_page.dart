@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:gengarbook/pages/new_book_model.dart';
+import 'package:gengarfilm/pages/new_film_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -90,14 +90,14 @@ class _HomepageState extends State<Homepage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Livros ativos!",
+                        "Filmes ativos!",
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 20,
                             color: Colors.black),
                       ),
                       Text(
-                        "Livros ativos",
+                        "Filmes ativos",
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
@@ -115,10 +115,10 @@ class _HomepageState extends State<Homepage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       context: context,
-                      builder: (context) => const NewBookModel(),
+                      builder: (context) => const NewFilmModel(),
                     ),
                     child: const Text(
-                      "+ Novo livro",
+                      "+ Novo filme",
                       style: TextStyle(color: Colors.deepPurple),
                     ),
                   )

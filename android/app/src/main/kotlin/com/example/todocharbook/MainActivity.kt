@@ -1,4 +1,4 @@
-package com.example.todocharbook
+package com.example.todocharfilm
 
 import io.flutter.embedding.android.FlutterActivity
 

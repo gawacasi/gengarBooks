@@ -1,6 +1,6 @@
 {
-    "name": "todocharbook",
-    "short_name": "todocharbook",
+    "name": "todocharfilm",
+    "short_name": "todocharfilm",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:gengarbook/common/style_txt.dart';
-import 'package:gengarbook/widgets/custom_text_field.dart';
-import 'package:gengarbook/widgets/date_time_widget.dart';
-import 'package:gengarbook/widgets/radio_widget.dart';
-import 'package:gengarbook/providers/radio_provider.dart';
+import 'package:gengarfilm/common/style_txt.dart';
+import 'package:gengarfilm/widgets/custom_text_field.dart';
+import 'package:gengarfilm/widgets/date_time_widget.dart';
+import 'package:gengarfilm/widgets/radio_widget.dart';
+import 'package:gengarfilm/providers/radio_provider.dart';
 
-class NewBookModel extends ConsumerWidget {
-  const NewBookModel({
+class NewFilmModel extends ConsumerWidget {
+  const NewFilmModel({
     super.key,
   });
 
@@ -18,7 +18,7 @@ class NewBookModel extends ConsumerWidget {
     return GestureDetector(
       onVerticalDragEnd: (details) {
         if (details.primaryVelocity! > 0) {
-          Navigator.pop(context); // Fecha o modal ao arrastar para baixo
+          Navigator.pop(context);
         }
       },
       child: SingleChildScrollView(
@@ -30,7 +30,7 @@ class NewBookModel extends ConsumerWidget {
             const SizedBox(
               width: double.infinity,
               child: Text(
-                'Adicionar novo livro',
+                'Adicionar novo filme',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
@@ -45,16 +45,16 @@ class NewBookModel extends ConsumerWidget {
             ),
             const Gap(12),
             const Text(
-              'Titulo do Livro',
+              'Titulo do Filme',
               style: AppStyle.headingText,
             ),
             const Gap(6),
             const CustomTextField(
-              hintTxt: 'Escreva o titulo do seu livro',
+              hintTxt: 'Escreva o titulo do seu filme',
             ),
             const Gap(12),
             const Text(
-              'Autor do livro',
+              'Autor do filme',
               style: AppStyle.headingText,
             ),
             const Gap(6),
@@ -68,7 +68,7 @@ class NewBookModel extends ConsumerWidget {
             ),
             const Gap(6),
             const CustomTextField(
-              hintTxt: "Descrição do livro",
+              hintTxt: "Descrição do filme",
               maxLength: 255,
               maxLines: 3,
             ),
@@ -118,14 +118,14 @@ class NewBookModel extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 DateTimeWidget(
-                  dateTimeText: 'Início da Leitura',
+                  dateTimeText: 'Início da sessão',
                   valueText: 'dd/mm/aa',
                   type: 'date',
                   icon: CupertinoIcons.time,
                 ),
                 Gap(30),
                 DateTimeWidget(
-                  dateTimeText: 'Horario de leitura',
+                  dateTimeText: 'Horario de sessão',
                   valueText: '00:00',
                   type: 'time',
                   icon: CupertinoIcons.time,
