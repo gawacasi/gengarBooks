@@ -40,7 +40,6 @@ dependencies:
   dio: ^5.3.4
   get: ^4.6.6
   flutter_riverpod: ^2.4.9
-  flutter_native_splash: ^2.3.6
 
 dev_dependencies:
   flutter_test:

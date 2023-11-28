@@ -23,8 +23,6 @@ class NewFilmModel extends ConsumerWidget {
         }
       },
       child: SingleChildScrollView(
-        padding:
-            const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -81,15 +79,19 @@ class NewFilmModel extends ConsumerWidget {
             Row(
               children: [
                 Expanded(
-                  child: RadioWidget(
-                      radioTxt: 'Nada',
-                      statusColor: Colors.red.shade400,
-                      valueInput: 1,
-                      onChangedValue: () => {
-                            ref
-                                .read(radioProvider.notifier)
-                                .update((state) => 1),
-                          }),
+                  child: Column(
+                    children: [
+                      RadioWidget(
+                          radioTxt: 'Nada',
+                          statusColor: Colors.red.shade400,
+                          valueInput: 1,
+                          onChangedValue: () => {
+                                ref
+                                    .read(radioProvider.notifier)
+                                    .update((state) => 1),
+                              }),
+                    ],
+                  ),
                 ),
                 Expanded(
                   child: RadioWidget(
