@@ -120,12 +120,14 @@ class NewBookModel extends ConsumerWidget {
                 DateTimeWidget(
                   dateTimeText: 'Início da Leitura',
                   valueText: 'dd/mm/aa',
+                  type: 'date',
                   icon: CupertinoIcons.time,
                 ),
                 Gap(30),
                 DateTimeWidget(
                   dateTimeText: 'Horario de leitura',
-                  valueText: ' 12:00',
+                  valueText: '00:00',
+                  type: 'time',
                   icon: CupertinoIcons.time,
                 )
               ],

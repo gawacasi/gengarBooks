@@ -9,6 +9,7 @@ void main() {
         debugShowCheckedModeBanner: false,
         title: 'GengarBook',
         theme: ThemeData(
+          primaryColor: Colors.deepPurple,
           fontFamily: "Poppins",
         ),
         home: const HomePage(),
