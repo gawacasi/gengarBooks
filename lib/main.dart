@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gengarfilm/pages/home_page.dart';
+import 'package:gengarfilm/pages/login_page.dart';
 
 void main() {
   // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +16,7 @@ void main() {
           primaryColor: Colors.deepPurple,
           fontFamily: "Poppins",
         ),
-        home: const HomePage(),
+        home: const LoginPage(),
       ),
     ),
   );

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:gengarfilm/common/style_txt.dart';
+import 'package:gengarfilm/commons/style_txt.dart';
 import 'package:gengarfilm/widgets/custom_text_field.dart';
 import 'package:gengarfilm/widgets/date_time_widget.dart';
 import 'package:gengarfilm/widgets/radio_widget.dart';
