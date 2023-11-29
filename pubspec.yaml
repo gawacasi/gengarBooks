@@ -57,11 +57,6 @@ dev_dependencies:
     
 # The following section is specific to Flutter packages.
 
-flutter_native_splash:
-    color: "#673AB7"
-    branding_mode: center
-    image: assets/gengar_splash.png
-
 flutter:
 
   # The following line ensures that the Material Icons font is

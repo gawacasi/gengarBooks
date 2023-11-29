@@ -1,72 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-
+import 'package:gengarfilm/common/style_colors.dart';
 import 'package:gengarfilm/common/style_txt.dart';
+import 'package:gengarfilm/widgets/custom_button.dart';
+import 'package:gengarfilm/widgets/custom_text_button.dart';
 
 class OnboardPage extends StatelessWidget {
-  const OnboardPage({Key? key}) : super(key: key);
+  const OnboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      backgroundColor: AppColors.WhiteText,
+      body: Align(
         child: Column(
           children: [
+            const SizedBox(
+              height: 50.0,
+            ),
             Expanded(
-              flex: 2,
               child: Image.asset(
                 'assets/gengar_splash.png',
-                scale: 3,
               ),
+            ),
+            const SizedBox(
+              height: 20.0,
             ),
             const Text(
-              'Gengar Films',
-              style: AppStyle.titleText,
+              "GengarFilm",
+              style: AppStyle.charText,
             ),
-            const Gap(10),
-            GestureDetector(
-              onTap: () => {Navigator.of(context).pushReplacementNamed('home')},
-              child: Container(
-                height: 60,
-                width: 200,
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                  border: Border.all(color: Colors.deepPurple),
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Iniciar sessão",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+            const Text(
+              "Seu App de Filmes",
+              style: AppStyle.charText,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 13.0, left: 40, right: 40),
+              child: CustomButton(
+                text: 'Cadastre-se',
+                onPressed: () => {
+                  {Navigator.of(context).pushReplacementNamed('singup')},
+                },
               ),
             ),
-            const Gap(10),
-            InkWell(
-              onTap: () => {},
-              child: const Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Não tem conta?',
-                      style: AppStyle.headingText,
-                    ),
-                    Gap(5),
-                    Text(
-                      'Cadastre-se!',
-                      style: AppStyle.loginHeadingPurpleText,
-                    )
-                  ],
-                ),
-              ),
+            CustomTextButton(
+              onPressed: () =>
+                  {Navigator.of(context).pushReplacementNamed('login')},
+              text: 'Já possui conta? ',
+              customTxt: 'Login',
             ),
-            const Gap(10),
+            const SizedBox(
+              height: 25.0,
+            )
           ],
         ),
       ),

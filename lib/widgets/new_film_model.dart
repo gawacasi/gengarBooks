@@ -16,13 +16,21 @@ class NewFilmModel extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // final radioCategory = ref.watch(radioProvider);
     return GestureDetector(
       onVerticalDragEnd: (details) {
         if (details.primaryVelocity! > 0) {
           Navigator.pop(context);
         }
       },
-      child: SingleChildScrollView(
+      child: Container(
+        // padding: EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+        padding: const EdgeInsets.all(30),
+        height: MediaQuery.of(context).size.height * 0.70,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -94,26 +102,34 @@ class NewFilmModel extends ConsumerWidget {
                   ),
                 ),
                 Expanded(
-                  child: RadioWidget(
-                      radioTxt: 'Lendo',
-                      statusColor: Colors.purple.shade200,
-                      valueInput: 2,
-                      onChangedValue: () => {
-                            ref
-                                .read(radioProvider.notifier)
-                                .update((state) => 2),
-                          }),
+                  child: Column(
+                    children: [
+                      RadioWidget(
+                          radioTxt: 'Lendo',
+                          statusColor: Colors.purple.shade200,
+                          valueInput: 2,
+                          onChangedValue: () => {
+                                ref
+                                    .read(radioProvider.notifier)
+                                    .update((state) => 2),
+                              }),
+                    ],
+                  ),
                 ),
                 Expanded(
-                  child: RadioWidget(
-                      radioTxt: 'Lido',
-                      statusColor: Colors.deepPurple,
-                      valueInput: 3,
-                      onChangedValue: () => {
-                            ref
-                                .read(radioProvider.notifier)
-                                .update((state) => 3),
-                          }),
+                  child: Column(
+                    children: [
+                      RadioWidget(
+                          radioTxt: 'Lido',
+                          statusColor: Colors.deepPurple,
+                          valueInput: 3,
+                          onChangedValue: () => {
+                                ref
+                                    .read(radioProvider.notifier)
+                                    .update((state) => 3),
+                              }),
+                    ],
+                  ),
                 )
               ],
             ),
