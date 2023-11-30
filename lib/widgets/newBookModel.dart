@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:gengarbook/common/styleTxt.dart';
+import 'package:gengarbook/provider/dateTimeProvider.dart';
 import 'package:gengarbook/widgets/customTextField.dart';
 import 'package:gengarbook/widgets/dateTimeWidget.dart';
 import 'package:gengarbook/widgets/radioWidget.dart';
 import 'package:gengarbook/provider/radioProvider.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class newBookModel extends ConsumerWidget {
   const newBookModel({
@@ -15,9 +18,10 @@ class newBookModel extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final dateProv = ref.watch(dateProvider);
+    final timeProv = ref.watch(timeProvider);
     return Container(
       padding: const EdgeInsets.all(30),
-      height: MediaQuery.of(context).size.height * 0.9,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16), color: Colors.white),
       child: Column(
@@ -108,14 +112,41 @@ class newBookModel extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               dateTimeWidget(
+                onTap: () async {
+                  final getValue = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1990),
+                    lastDate: DateTime(2025),
+                  );
+
+                  if (getValue != null) {
+                    final format = DateFormat.yMMMd();
+                    ref
+                        .read(dateProvider.notifier)
+                        .update((state) => format.format(getValue));
+                  }
+                },
                 icon: CupertinoIcons.calendar,
                 dateTimeText: 'Inicio da leitura',
-                valueText: 'dia/mês/ano',
+                valueText: dateProv,
               ),
               Gap(30),
               dateTimeWidget(
+                onTap: () async {
+                  final getTime = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+
+                  if (getTime != null) {
+                    ref
+                        .read(timeProvider.notifier)
+                        .update((state) => getTime.format(context));
+                  }
+                },
                 dateTimeText: 'Horario de leitura',
-                valueText: ' 12:00',
+                valueText: timeProv,
                 icon: CupertinoIcons.time,
               )
             ],
@@ -135,7 +166,7 @@ class newBookModel extends ConsumerWidget {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
-                  onPressed: () {},
+                  onPressed: () => Navigator.pop(context),
                   child: const Text(
                     'Cancelar',
                     style: TextStyle(

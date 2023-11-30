@@ -121,9 +121,71 @@ class _HomepageState extends State<Homepage> {
                       context: context,
                       builder: (context) => newBookModel(),
                     ),
-                  )
+                  ),
                 ],
               ),
+              const Gap(20),
+              Container(
+                width: double.infinity,
+                height: 120,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Row(children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10))),
+                    width: 10,
+                  ),
+                  Expanded(
+                      child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          title: const Text('Titulo'),
+                          subtitle: const Text('Description'),
+                          trailing: Transform.scale(
+                            scale: 1.5,
+                            child: Checkbox(
+                              shape: const CircleBorder(),
+                              value: true,
+                              activeColor: Colors.purple,
+                              onChanged: (value) => print(value),
+                            ),
+                          ),
+                        ),
+                        Transform.translate(
+                          offset: const Offset(0, -12),
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Divider(
+                                  thickness: 1.5,
+                                  color: Colors.grey.shade200,
+                                ),
+                                Row(
+                                  children: [
+                                    Text('hoje'),
+                                    Gap(12),
+                                    Text('09:15 AM - 11:45 PM'),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ))
+                ]),
+              )
             ],
           ),
         ),
