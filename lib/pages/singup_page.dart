@@ -105,5 +105,3 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
-
-class UpperCaseTxtInput {}

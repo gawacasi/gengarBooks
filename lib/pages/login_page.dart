@@ -1,10 +1,83 @@
 import 'package:flutter/material.dart';
+import 'package:gengarfilm/widgets/custom_button.dart';
+import 'package:gengarfilm/widgets/custom_form_field.dart';
+import 'package:gengarfilm/widgets/custom_text_button.dart';
+import 'package:gengarfilm/widgets/password_form_field.dart';
+import 'package:gengarfilm/widgets/uppercase_text.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: ListView(
+          shrinkWrap: true,
+          padding: const EdgeInsets.all(20.0),
+          children: [
+            Image.asset(
+              'assets/gengar_splash.png',
+              height: 110,
+            ),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  CustomFormField(
+                    validator: (value) {
+                      if (value != null && value.isEmpty) {
+                        return "Esse campo não pode ser vazio";
+                      }
+                      return null;
+                    },
+                    hintTxt: "user@email.com",
+                    labelTxt: "EMAIL",
+                  ),
+                  PasswordFormField(
+                    validator: (value) {
+                      if (value != null && value.isEmpty) {
+                        return "Esse campo não pode ser vazio";
+                      }
+                      return null;
+                    },
+                    hintTxt: "*********",
+                    labelTxt: "SENHA",
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 13.0),
+              child: CustomButton(
+                text: 'Entrar',
+                onPressed: () {
+                  final valid = _formKey.currentState != null &&
+                      _formKey.currentState!.validate();
+                  if (valid) {
+                    Navigator.of(context).pushReplacementNamed('home');
+                  } else {
+                    print("erro");
+                  }
+                },
+              ),
+            ),
+            CustomTextButton(
+              onPressed: () =>
+                  {Navigator.of(context).pushReplacementNamed('signup')},
+              text: 'Não possui uma conta? ',
+              customTxt: 'Cadastre-se',
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

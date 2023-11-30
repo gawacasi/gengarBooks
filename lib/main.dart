@@ -17,7 +17,7 @@ void main() {
           primaryColor: Colors.deepPurple,
           fontFamily: "Poppins",
         ),
-        initialRoute: 'initial',
+        initialRoute: 'login',
         routes: {
           'initial': (context) => const OnboardPage(),
           '/': (context) => const SplashPage(),
