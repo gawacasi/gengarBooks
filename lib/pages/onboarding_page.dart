@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gengarfilm/common/style_colors.dart';
 import 'package:gengarfilm/common/style_txt.dart';
 import 'package:gengarfilm/widgets/custom_button.dart';
-import 'package:gengarfilm/widgets/custom_text_button.dart';
 
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key});
@@ -20,10 +19,8 @@ class OnboardPage extends StatelessWidget {
             Expanded(
               child: Image.asset(
                 'assets/gengar_splash.png',
+                scale: 3,
               ),
-            ),
-            const SizedBox(
-              height: 20.0,
             ),
             const Text(
               "GengarFilm",
@@ -36,17 +33,11 @@ class OnboardPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 13.0, left: 40, right: 40),
               child: CustomButton(
-                text: 'Cadastre-se',
+                text: 'Entrar',
                 onPressed: () => {
-                  {Navigator.of(context).pushReplacementNamed('singup')},
+                  {Navigator.of(context).pushNamed('login')},
                 },
               ),
-            ),
-            CustomTextButton(
-              onPressed: () =>
-                  {Navigator.of(context).pushReplacementNamed('login')},
-              text: 'Já possui conta? ',
-              customTxt: 'Login',
             ),
             const SizedBox(
               height: 25.0,
