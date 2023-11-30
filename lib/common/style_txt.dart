@@ -10,7 +10,7 @@ class AppStyle {
   static const TextStyle charText = TextStyle(
     fontSize: 35.0,
     fontWeight: FontWeight.w900,
-    color: AppColors.PurpleBase,
+    color: AppColors.purpleBase,
   );
 
   static const TextStyle smallTextDark = TextStyle(

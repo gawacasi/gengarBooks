@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gengarfilm/api/movie_api.dart';
 import 'package:gengarfilm/widgets/custom_button.dart';
 import 'package:gengarfilm/widgets/custom_form_field.dart';
 import 'package:gengarfilm/widgets/custom_text_button.dart';
 import 'package:gengarfilm/widgets/password_form_field.dart';
-import 'package:gengarfilm/widgets/uppercase_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
+  String email = '', senha = '';
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (value != null && value.isEmpty) {
                         return "Esse campo não pode ser vazio";
                       }
+                      email = value.toString();
                       return null;
                     },
                     hintTxt: "user@email.com",
@@ -46,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (value != null && value.isEmpty) {
                         return "Esse campo não pode ser vazio";
                       }
+                      senha = value.toString();
                       return null;
                     },
                     hintTxt: "*********",
@@ -58,10 +62,13 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.only(top: 13.0),
               child: CustomButton(
                 text: 'Entrar',
-                onPressed: () {
+                onPressed: () async {
                   final valid = _formKey.currentState != null &&
                       _formKey.currentState!.validate();
                   if (valid) {
+                    print('Email: $email');
+                    print('Senha: $senha');
+                    await login(email, senha);
                     Navigator.of(context).pushReplacementNamed('home');
                   } else {
                     print("erro");

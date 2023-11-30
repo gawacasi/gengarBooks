@@ -1,4 +1,6 @@
 class FilmModel {
+  String? uuid;
+  int? usuario;
   String? titulo;
   String? descricao;
   String? linkImagem;
@@ -8,12 +10,14 @@ class FilmModel {
   String? atores;
   String? generos;
   String? comentarios;
-  int? estrelas;
+  double? estrelas;
   bool? favorito;
   String? status;
 
   FilmModel(
-      {this.titulo,
+      {this.uuid,
+      this.usuario,
+      this.titulo,
       this.descricao,
       this.linkImagem,
       this.dataDeLancamento,
@@ -27,6 +31,8 @@ class FilmModel {
       this.status});
 
   FilmModel.fromJson(Map<String, dynamic> json) {
+    uuid = json['uuid'];
+    usuario = json['usuario'];
     titulo = json['titulo'];
     descricao = json['descricao'];
     linkImagem = json['link_imagem'];
@@ -42,19 +48,21 @@ class FilmModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['titulo'] = this.titulo;
-    data['descricao'] = this.descricao;
-    data['link_imagem'] = this.linkImagem;
-    data['data_de_lancamento'] = this.dataDeLancamento;
-    data['diretores'] = this.diretores;
-    data['roteiristas'] = this.roteiristas;
-    data['atores'] = this.atores;
-    data['generos'] = this.generos;
-    data['comentarios'] = this.comentarios;
-    data['estrelas'] = this.estrelas;
-    data['favorito'] = this.favorito;
-    data['status'] = this.status;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['uuid'] = uuid;
+    data['usuario'] = usuario;
+    data['titulo'] = titulo;
+    data['descricao'] = descricao;
+    data['link_imagem'] = linkImagem;
+    data['data_de_lancamento'] = dataDeLancamento;
+    data['diretores'] = diretores;
+    data['roteiristas'] = roteiristas;
+    data['atores'] = atores;
+    data['generos'] = generos;
+    data['comentarios'] = comentarios;
+    data['estrelas'] = estrelas;
+    data['favorito'] = favorito;
+    data['status'] = status;
     return data;
   }
 }

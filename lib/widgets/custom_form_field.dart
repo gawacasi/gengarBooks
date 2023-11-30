@@ -46,8 +46,8 @@ class _CustomFormFieldState extends State<CustomFormField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          widget.padding ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: widget.padding ??
+          const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextFormField(
         validator: widget.validator,
         inputFormatters: widget.inputFormatter,
@@ -67,14 +67,14 @@ class _CustomFormFieldState extends State<CustomFormField> {
           border: defaultBorder,
           focusedBorder: defaultBorder.copyWith(
             borderSide: const BorderSide(
-              color: AppColors.PurpleBase,
+              color: AppColors.purpleBase,
             ),
           ),
           errorBorder: defaultBorder,
           focusedErrorBorder: defaultBorder,
           enabledBorder: defaultBorder.copyWith(
             borderSide: const BorderSide(
-              color: AppColors.StrongPurpleBase,
+              color: AppColors.strongPurpleBase,
             ),
           ),
           disabledBorder: defaultBorder,

@@ -10,7 +10,7 @@ class OnboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.WhiteText,
+      backgroundColor: AppColors.whiteText,
       body: Align(
         child: Column(
           children: [

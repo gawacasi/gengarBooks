@@ -29,7 +29,7 @@ class CustomTextButton extends StatelessWidget {
           Text(
             customTxt,
             style: AppStyle.smallTextDark
-                .copyWith(color: AppColors.StrongPurpleBase),
+                .copyWith(color: AppColors.strongPurpleBase),
           ),
         ],
       ),

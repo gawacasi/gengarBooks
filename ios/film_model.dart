@@ -42,19 +42,19 @@ class FilmModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['titulo'] = this.titulo;
-    data['descricao'] = this.descricao;
-    data['link_imagem'] = this.linkImagem;
-    data['data_de_lancamento'] = this.dataDeLancamento;
-    data['diretores'] = this.diretores;
-    data['roteiristas'] = this.roteiristas;
-    data['atores'] = this.atores;
-    data['generos'] = this.generos;
-    data['comentarios'] = this.comentarios;
-    data['estrelas'] = this.estrelas;
-    data['favorito'] = this.favorito;
-    data['status'] = this.status;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['titulo'] = titulo;
+    data['descricao'] = descricao;
+    data['link_imagem'] = linkImagem;
+    data['data_de_lancamento'] = dataDeLancamento;
+    data['diretores'] = diretores;
+    data['roteiristas'] = roteiristas;
+    data['atores'] = atores;
+    data['generos'] = generos;
+    data['comentarios'] = comentarios;
+    data['estrelas'] = estrelas;
+    data['favorito'] = favorito;
+    data['status'] = status;
     return data;
   }
 }
