@@ -126,7 +126,11 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
               const Gap(20),
-              CardListBooks()
+              ListView.builder(
+                itemCount: 1,
+                shrinkWrap: true,
+                itemBuilder: (context, index) => const CardListBooks(),
+              )
             ],
           ),
         ),
