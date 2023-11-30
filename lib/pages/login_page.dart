@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gengarfilm/api/movie_api.dart';
-import 'package:gengarfilm/widgets/custom_button.dart';
+import 'package:gengarfilm/common/style_colors.dart';
+import 'package:gengarfilm/common/style_txt.dart';
 import 'package:gengarfilm/widgets/custom_form_field.dart';
 import 'package:gengarfilm/widgets/custom_text_button.dart';
 import 'package:gengarfilm/widgets/password_form_field.dart';
@@ -26,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Image.asset(
               'assets/gengar_splash.png',
-              height: 110,
+              scale: 3,
             ),
             Form(
               key: _formKey,
@@ -40,8 +41,8 @@ class _LoginPageState extends State<LoginPage> {
                       email = value.toString();
                       return null;
                     },
-                    hintTxt: "user@email.com",
-                    labelTxt: "EMAIL",
+                    hintTxt: "Username",
+                    labelTxt: "USERNAME",
                   ),
                   PasswordFormField(
                     validator: (value) {
@@ -59,8 +60,20 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 13.0),
-              child: CustomButton(
-                text: 'Entrar',
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all<Size>(
+                      const Size(double.infinity, 60)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                  ),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(AppColors.purpleBase),
+                  overlayColor: MaterialStateProperty.all<Color>(
+                      AppColors.strongPurpleBase),
+                ),
                 onPressed: () async {
                   final valid = _formKey.currentState != null &&
                       _formKey.currentState!.validate();
@@ -69,13 +82,11 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.of(context).pushReplacementNamed('home');
                   } else {}
                 },
+                child: const Text(
+                  'Entrar',
+                  style: AppStyle.mediumTextWhite,
+                ),
               ),
-            ),
-            CustomTextButton(
-              onPressed: () =>
-                  {Navigator.of(context).pushReplacementNamed('signup')},
-              text: 'Não possui uma conta? ',
-              customTxt: 'Cadastre-se',
             ),
           ],
         ),
