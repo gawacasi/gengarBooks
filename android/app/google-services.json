@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "390344873982",
+    "project_id": "gengarfilms-49641",
+    "storage_bucket": "gengarfilms-49641.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390344873982:android:d8105b19e77fa15d7e92af",
+        "android_client_info": {
+          "package_name": "com.example.todocharbook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRSLZiOF5JFRtdnuWeWHkaRu6Z6z7ddak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
