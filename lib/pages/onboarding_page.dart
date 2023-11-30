@@ -31,7 +31,7 @@ class OnboardPage extends StatelessWidget {
               style: AppStyle.charText,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 13.0, left: 40, right: 40),
+              padding: const EdgeInsets.only(top: 15.0, left: 40, right: 40),
               child: CustomButton(
                 text: 'Entrar',
                 onPressed: () => {
