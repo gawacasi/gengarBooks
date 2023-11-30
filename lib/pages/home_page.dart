@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:gengarfilm/api/movie_api.dart';
 import 'package:gengarfilm/controllers/user_login_controller.dart';
 
 import 'package:gengarfilm/widgets/new_film_model.dart';

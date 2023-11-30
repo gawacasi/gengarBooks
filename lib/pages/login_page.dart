@@ -4,7 +4,6 @@ import 'package:gengarfilm/widgets/custom_button.dart';
 import 'package:gengarfilm/widgets/custom_form_field.dart';
 import 'package:gengarfilm/widgets/custom_text_button.dart';
 import 'package:gengarfilm/widgets/password_form_field.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -66,13 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                   final valid = _formKey.currentState != null &&
                       _formKey.currentState!.validate();
                   if (valid) {
-                    print('Email: $email');
-                    print('Senha: $senha');
                     await login(email, senha);
                     Navigator.of(context).pushReplacementNamed('home');
-                  } else {
-                    print("erro");
-                  }
+                  } else {}
                 },
               ),
             ),
