@@ -8,7 +8,6 @@ import 'package:gengarbook/widgets/customTextField.dart';
 import 'package:gengarbook/widgets/dateTimeWidget.dart';
 import 'package:gengarbook/widgets/radioWidget.dart';
 import 'package:gengarbook/provider/radioProvider.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class newBookModel extends ConsumerWidget {
@@ -45,21 +44,21 @@ class newBookModel extends ConsumerWidget {
           ),
           const Gap(12),
           const Text(
-            'Titulo do Livro',
+            'Titulo do Filme',
             style: appStyle.headingText,
           ),
           const Gap(6),
           customTextField(
-            hintTxt: 'Escreva o titulo do seu livro',
+            hintTxt: 'Escreva o titulo do seu Filme',
           ),
           const Gap(12),
           Text(
-            'Autor do livro',
+            'Link de Imagem',
             style: appStyle.headingText,
           ),
           const Gap(6),
           customTextField(
-            hintTxt: 'Escreva o nome do autor',
+            hintTxt: 'Digite o link de imagem',
           ),
           const Gap(12),
           Text(
@@ -68,7 +67,7 @@ class newBookModel extends ConsumerWidget {
           ),
           const Gap(6),
           customTextField(
-            hintTxt: "Descrição do livro",
+            hintTxt: "Descrição do filme",
             maxLength: 255,
             maxLines: 3,
           ),
@@ -81,7 +80,7 @@ class newBookModel extends ConsumerWidget {
             children: [
               Expanded(
                 child: radioWidget(
-                    radioTxt: 'Nada',
+                    radioTxt: 'NDA',
                     statusColor: Colors.red.shade400,
                     valueInput: 1,
                     onChangedValue: () => {
@@ -90,7 +89,7 @@ class newBookModel extends ConsumerWidget {
               ),
               Expanded(
                 child: radioWidget(
-                    radioTxt: 'Lendo',
+                    radioTxt: 'Marcar',
                     statusColor: Colors.purple.shade200,
                     valueInput: 2,
                     onChangedValue: () => {
@@ -99,7 +98,7 @@ class newBookModel extends ConsumerWidget {
               ),
               Expanded(
                 child: radioWidget(
-                    radioTxt: 'Lido',
+                    radioTxt: 'Visto',
                     statusColor: Colors.deepPurple,
                     valueInput: 3,
                     onChangedValue: () => {
@@ -128,7 +127,7 @@ class newBookModel extends ConsumerWidget {
                   }
                 },
                 icon: CupertinoIcons.calendar,
-                dateTimeText: 'Inicio da leitura',
+                dateTimeText: 'Lançamento',
                 valueText: dateProv,
               ),
               Gap(30),
@@ -145,7 +144,7 @@ class newBookModel extends ConsumerWidget {
                         .update((state) => getTime.format(context));
                   }
                 },
-                dateTimeText: 'Horario de leitura',
+                dateTimeText: 'Horario do Filme',
                 valueText: timeProv,
                 icon: CupertinoIcons.time,
               )
