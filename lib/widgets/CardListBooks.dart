@@ -30,23 +30,29 @@ class CardListBooks extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
-                contentPadding: EdgeInsets.zero,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 title: const Text('Titulo'),
                 subtitle: const Text('Description'),
                 trailing: Transform.scale(
                   scale: 1.5,
-                  child: Checkbox(
-                    shape: const CircleBorder(),
-                    value: true,
-                    activeColor: Colors.purple,
-                    onChanged: (value) => print(value),
+                  child: Container(
+                    height: 30,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.network(
+                          'https://yt3.ggpht.com/yti/ADpuP3M7u7NI18NMZJpS8xZnZxMtdZT1XSjfDzwM6AVmkFw=s88-c-k-c0x00ffffff-no-rj'),
+                    ),
                   ),
                 ),
               ),
               Transform.translate(
-                offset: const Offset(0, -12),
+                offset: const Offset(0, -10),
                 child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Divider(
                         thickness: 1.5,
@@ -57,12 +63,16 @@ class CardListBooks extends StatelessWidget {
                           Text('hoje'),
                           Gap(12),
                           Text('09:15 AM - 11:45 PM'),
-                          Gap(90),
-                          Container(
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.network(''),),
-                          )
+                          Gap(60),
+                          Transform.scale(
+                            scale: 1.5,
+                            child: Checkbox(
+                              shape: const CircleBorder(),
+                              value: true,
+                              activeColor: Colors.purple,
+                              onChanged: (value) => print(value),
+                            ),
+                          ),
                         ],
                       )
                     ],
