@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:gengarbook/common/styleTxt.dart';
+import 'package:gengarmovies/common/style_text.dart';
 
-class dateTimeWidget extends ConsumerWidget {
-  const dateTimeWidget({
+class DateTimeWidget extends ConsumerWidget {
+  const DateTimeWidget({
     Key? key,
     required this.dateTimeText,
     required this.valueText,
@@ -22,7 +22,7 @@ class dateTimeWidget extends ConsumerWidget {
     return Expanded(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
-          this.dateTimeText,
+          dateTimeText,
           style: AppStyle.headingText,
         ),
         const Gap(6),
@@ -46,7 +46,7 @@ class dateTimeWidget extends ConsumerWidget {
                 ),
                 child: Row(children: [
                   Icon(icon),
-                  Gap(6),
+                  const Gap(6),
                   Text(valueText),
                 ]),
               ),

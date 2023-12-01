@@ -1,4 +1,4 @@
-class FilmModel {
+class MovieModel {
   String? uuid;
   int? usuario;
   String? titulo;
@@ -14,7 +14,7 @@ class FilmModel {
   bool? favorito;
   String? status;
 
-  FilmModel(
+  MovieModel(
       {this.uuid,
       this.usuario,
       this.titulo,
@@ -30,7 +30,7 @@ class FilmModel {
       this.favorito,
       this.status});
 
-  FilmModel.fromJson(Map<String, dynamic> json) {
+  MovieModel.fromJson(Map<String, dynamic> json) {
     uuid = json['uuid'];
     usuario = json['usuario'];
     titulo = json['titulo'];

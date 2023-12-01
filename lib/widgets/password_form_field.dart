@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gengarbook/widgets/customFormField.dart';
+import 'package:gengarmovies/widgets/custom_form_field.dart';
 
 class PasswordFormField extends StatefulWidget {
   final String? hintTxt;

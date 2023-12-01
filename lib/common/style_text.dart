@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gengarbook/common/appCollors.dart';
+import 'package:gengarmovies/common/style_colors.dart';
 
 class AppStyle {
   static const TextStyle logoTxt = TextStyle(
@@ -57,5 +57,4 @@ class AppStyle {
       )
     ],
   );
-  
 }

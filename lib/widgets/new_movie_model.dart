@@ -2,16 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:gengarbook/common/styleTxt.dart';
-import 'package:gengarbook/provider/dateTimeProvider.dart';
-import 'package:gengarbook/widgets/customTextField.dart';
-import 'package:gengarbook/widgets/dateTimeWidget.dart';
-import 'package:gengarbook/widgets/radioWidget.dart';
-import 'package:gengarbook/provider/radioProvider.dart';
+import 'package:gengarmovies/common/style_text.dart';
+import 'package:gengarmovies/provider/datetime_provider.dart';
+import 'package:gengarmovies/widgets/custom_text_field.dart';
+import 'package:gengarmovies/widgets/date_time_widget.dart';
+import 'package:gengarmovies/widgets/radio_widget.dart';
+import 'package:gengarmovies/provider/radio_provider.dart';
 import 'package:intl/intl.dart';
 
-class newBookModel extends ConsumerWidget {
-  const newBookModel({
+class NewMovieModel extends ConsumerWidget {
+  const NewMovieModel({
     super.key,
   });
 
@@ -26,10 +26,10 @@ class newBookModel extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             width: double.infinity,
             child: Text(
-              'Adicionar novo livro',
+              'Adicionar novo filme',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
@@ -48,38 +48,38 @@ class newBookModel extends ConsumerWidget {
             style: AppStyle.headingText,
           ),
           const Gap(6),
-          customTextField(
-            hintTxt: 'Escreva o titulo do seu Filme',
+          const CustomTextField(
+            hintTxt: 'Escreva o titulo do seu filme',
           ),
           const Gap(12),
-          Text(
+          const Text(
             'Link de Imagem',
             style: AppStyle.headingText,
           ),
           const Gap(6),
-          customTextField(
+          const CustomTextField(
             hintTxt: 'Digite o link de imagem',
           ),
           const Gap(12),
-          Text(
+          const Text(
             'Descrição',
             style: AppStyle.headingText,
           ),
           const Gap(6),
-          customTextField(
+          const CustomTextField(
             hintTxt: "Descrição do filme",
             maxLength: 255,
             maxLines: 3,
           ),
-          Gap(12),
-          Text(
+          const Gap(12),
+          const Text(
             'Status',
             style: AppStyle.headingText,
           ),
           Row(
             children: [
               Expanded(
-                child: radioWidget(
+                child: RadioWidget(
                     radioTxt: 'NDA',
                     statusColor: Colors.red.shade400,
                     valueInput: 1,
@@ -88,7 +88,7 @@ class newBookModel extends ConsumerWidget {
                         }),
               ),
               Expanded(
-                child: radioWidget(
+                child: RadioWidget(
                     radioTxt: 'Marcar',
                     statusColor: Colors.purple.shade200,
                     valueInput: 2,
@@ -97,7 +97,7 @@ class newBookModel extends ConsumerWidget {
                         }),
               ),
               Expanded(
-                child: radioWidget(
+                child: RadioWidget(
                     radioTxt: 'Visto',
                     statusColor: Colors.deepPurple,
                     valueInput: 3,
@@ -110,7 +110,7 @@ class newBookModel extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              dateTimeWidget(
+              DateTimeWidget(
                 onTap: () async {
                   final getValue = await showDatePicker(
                     context: context,
@@ -130,8 +130,8 @@ class newBookModel extends ConsumerWidget {
                 dateTimeText: 'Lançamento',
                 valueText: dateProv,
               ),
-              Gap(30),
-              dateTimeWidget(
+              const Gap(30),
+              DateTimeWidget(
                 onTap: () async {
                   final getTime = await showTimePicker(
                     context: context,
@@ -150,13 +150,13 @@ class newBookModel extends ConsumerWidget {
               )
             ],
           ),
-          Gap(13),
+          const Gap(13),
           Row(
             children: [
               Expanded(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    side: BorderSide(color: Colors.deepPurple),
+                    side: const BorderSide(color: Colors.deepPurple),
                     backgroundColor: const Color.fromARGB(255, 239, 231, 240),
                     foregroundColor: Colors.deepPurple,
                     elevation: 10,
@@ -173,11 +173,11 @@ class newBookModel extends ConsumerWidget {
                   ),
                 ),
               ),
-              Gap(30),
+              const Gap(30),
               Expanded(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    side: BorderSide(color: Colors.deepPurple),
+                    side: const BorderSide(color: Colors.deepPurple),
                     backgroundColor: Colors.deepPurple,
                     foregroundColor: Colors.white,
                     elevation: 10,

@@ -56,7 +56,7 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyDRSLZiOF5JFRtdnuWeWHkaRu6Z6z7ddak',
     appId: '1:390344873982:android:d8105b19e77fa15d7e92af',
     messagingSenderId: '390344873982',
-    projectId: 'gengarfilms-49641',
-    storageBucket: 'gengarfilms-49641.appspot.com',
+    projectId: 'gengarmovies-49641',
+    storageBucket: 'gengarmovies-49641.appspot.com',
   );
 }

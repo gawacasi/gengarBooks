@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gengarbook/api/movie_api.dart';
-import 'package:gengarbook/common/appCollors.dart';
-import 'package:gengarbook/common/styleTxt.dart';
-import 'package:gengarbook/widgets/customFormField.dart';
-import 'package:gengarbook/widgets/passwordFormField.dart';
+import 'package:gengarmovies/api/movie_api.dart';
+import 'package:gengarmovies/common/style_colors.dart';
+import 'package:gengarmovies/common/style_text.dart';
+import 'package:gengarmovies/controllers/user_controller.dart';
+import 'package:gengarmovies/widgets/custom_form_field.dart';
+import 'package:gengarmovies/widgets/password_form_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  String email = '', senha = '';
+  String username = '', senha = '';
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Image.asset(
               'assets/gengar.png',
-              scale: 3,
+              scale: 8,
             ),
             Form(
               key: _formKey,
@@ -37,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (value != null && value.isEmpty) {
                         return "Esse campo não pode ser vazio";
                       }
-                      email = value.toString();
+                      username = value.toString();
                       return null;
                     },
                     hintTxt: "Username",
@@ -77,8 +78,10 @@ class _LoginPageState extends State<LoginPage> {
                   final valid = _formKey.currentState != null &&
                       _formKey.currentState!.validate();
                   if (valid) {
-                    await login(email, senha);
-                    Navigator.of(context).pushReplacementNamed('home');
+                    final userStorage = UserController();
+                    await userStorage.saveUsername(username);
+                    await login(username, senha);
+                    await Navigator.of(context).pushReplacementNamed('home');
                   } else {}
                 },
                 child: const Text(

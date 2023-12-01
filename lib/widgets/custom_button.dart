@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gengarbook/common/appCollors.dart';
-import 'package:gengarbook/common/styleTxt.dart';
+import 'package:gengarmovies/common/style_colors.dart';
+import 'package:gengarmovies/common/style_text.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;

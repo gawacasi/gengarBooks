@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gengarbook/widgets/customButton.dart';
-import 'package:gengarbook/widgets/customFormField.dart';
-import 'package:gengarbook/widgets/customTextButton.dart';
-import 'package:gengarbook/widgets/passwordFormField.dart';
-import 'package:gengarbook/widgets/upperCasetext.dart';
-
+import 'package:gengarmovies/widgets/custom_button.dart';
+import 'package:gengarmovies/widgets/custom_form_field.dart';
+import 'package:gengarmovies/widgets/custom_text_button.dart';
+import 'package:gengarmovies/widgets/password_form_field.dart';
+import 'package:gengarmovies/widgets/upper_case_text.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -22,7 +21,7 @@ class _SignupPageState extends State<SignupPage> {
       body: ListView(
         children: [
           Image.asset(
-            'assets/gengar_splash.png',
+            'assets/gengar.png',
             height: 110,
           ),
           Form(

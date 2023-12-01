@@ -1,74 +1,62 @@
 import 'package:dio/dio.dart';
-import 'package:gengarbook/controllers/userController.dart';
-import 'package:gengarbook/models/filmModel.dart';
-import 'package:gengarbook/models/userModel.dart';
+import 'package:gengarmovies/controllers/user_controller.dart';
+import 'package:gengarmovies/models/movie_model.dart';
+import 'package:gengarmovies/models/user_model.dart';
 
-Future<void> getFilmData(String userId) async {
+Future<List<MovieModel>> getMovieData(String userId) async {
   try {
     final Dio dio = Dio();
     final response =
         await dio.get('https://apiloomi.onrender.com/filme/user/$userId');
 
     if (response.statusCode == 200) {
-      final List<dynamic> filmList = response.data;
+      final List<dynamic> movieListData = response.data;
+      List<MovieModel> movieList =
+          movieListData.map((data) => MovieModel.fromJson(data)).toList();
 
-      for (var jsonData in filmList) {
-        final film = FilmModel.fromJson(jsonData);
-        print("""uiid: ${film.uuid}
-            Usuário: ${film.usuario}
-            Título: ${film.titulo}
-            Descrição: ${film.descricao}
-            Imagem: ${film.linkImagem}
-            Data de Lançamento: ${film.dataDeLancamento}
-            Diretor(s): ${film.diretores}
-            Roteirista(s): ${film.roteiristas}
-            Atores(as): ${film.atores}
-            Generos: ${film.generos}
-            Comentários: ${film.comentarios}
-            Estrelas: ${film.estrelas}
-            Favorito: ${film.favorito}
-            Status: ${film.status}""");
-      }
+      return movieList;
     } else {
-      print('Falha ao carregar detalhes do filme: ${response.statusCode}');
+      print('Falha ao carregar detalhes do moviee: ${response.statusCode}');
+      return []; // Retorna uma lista vazia em caso de falha
     }
   } catch (e) {
-    print('Erro ao carregar detalhes do filme: $e');
+    print('Erro ao carregar detalhes do moviee: $e');
+    return []; // Retorna uma lista vazia em caso de erro
   }
 }
 
-Future<void> getIndividualFilm(String userId, String filmId) async {
+Future<void> getIndividualMovie(String userId, String filmeId) async {
   try {
     final Dio dio = Dio();
     final response = await dio.get(
-      'https://apiloomi.onrender.com/filme/$filmId/user/$userId/',
+      'https://apiloomi.onrender.com/filme/$filmeId/user/$userId/',
     );
 
     if (response.statusCode == 200) {
-      final film = FilmModel.fromJson(response.data);
-      print("""Título: ${film.titulo}
-          Descrição: ${film.descricao}
-          Imagem: ${film.linkImagem}
-          Data de Lançamento: ${film.dataDeLancamento}
-          Diretor(s): ${film.diretores}
-          Roteirista(s): ${film.roteiristas}
-          Atores(as): ${film.atores}
-          Gêneros: ${film.generos}
-          Comentários: ${film.comentarios}
-          Estrelas: ${film.estrelas}
-          Favorito: ${film.favorito}
-          Status: ${film.status}""");
+      final movie = MovieModel.fromJson(response.data);
+      print("""Título: ${movie.titulo}
+          Descrição: ${movie.descricao}
+          Imagem: ${movie.linkImagem}
+          Data de Lançamento: ${movie.dataDeLancamento}
+          Diretor(s): ${movie.diretores}
+          Roteirista(s): ${movie.roteiristas}
+          Atores(as): ${movie.atores}
+          Gêneros: ${movie.generos}
+          Comentários: ${movie.comentarios}
+          Estrelas: ${movie.estrelas}
+          Favorito: ${movie.favorito}
+          Status: ${movie.status}""");
     } else {
-      print('Falha ao carregar detalhes do filme: ${response.statusCode}');
+      print('Falha ao carregar detalhes do moviee: ${response.statusCode}');
     }
   } catch (e) {
-    print('Erro ao carregar detalhes do filme: $e');
+    print('Erro ao carregar detalhes do moviee: $e');
   }
 }
 
-Future<void> patchFilm(
+Future<void> patchMovie(
   String userId,
-  String filmId,
+  String filmeId,
   String titulo,
   String descricao,
   String linkImagem,
@@ -83,7 +71,7 @@ Future<void> patchFilm(
   String status,
 ) async {
   try {
-    final film = FilmModel(
+    final movie = MovieModel(
       titulo: titulo,
       descricao: descricao,
       linkImagem: linkImagem,
@@ -100,38 +88,38 @@ Future<void> patchFilm(
 
     final Dio dio = Dio();
     final response = await dio.patch(
-      'https://apiloomi.onrender.com/filme/$filmId/user/$userId',
-      data: film.toJson(),
+      'https://apiloomi.onrender.com/filme/$filmeId/user/$userId',
+      data: movie.toJson(),
       options: Options(
         contentType: 'application/json; charset=UTF-8',
       ),
     );
 
     if (response.statusCode == 200) {
-      final updatedFilm = FilmModel.fromJson(response.data);
-      print("""Filme atualizado:
-            Título: ${updatedFilm.titulo}
-            Descrição: ${updatedFilm.descricao}
-            Imagem: ${updatedFilm.linkImagem}
-            Data de Lançamento: ${updatedFilm.dataDeLancamento}
-            Diretor(s): ${updatedFilm.diretores}
-            Roteirista(s): ${updatedFilm.roteiristas}
-            Atores(as): ${updatedFilm.atores}
-            Gêneros: ${updatedFilm.generos}
-            Comentários: ${updatedFilm.comentarios}
-            Estrelas: ${updatedFilm.estrelas}
-            Favorito: ${updatedFilm.favorito}
-            Status: ${updatedFilm.status}
+      final updatedMovie = MovieModel.fromJson(response.data);
+      print("""Moviee atualizado:
+            Título: ${updatedMovie.titulo}
+            Descrição: ${updatedMovie.descricao}
+            Imagem: ${updatedMovie.linkImagem}
+            Data de Lançamento: ${updatedMovie.dataDeLancamento}
+            Diretor(s): ${updatedMovie.diretores}
+            Roteirista(s): ${updatedMovie.roteiristas}
+            Atores(as): ${updatedMovie.atores}
+            Gêneros: ${updatedMovie.generos}
+            Comentários: ${updatedMovie.comentarios}
+            Estrelas: ${updatedMovie.estrelas}
+            Favorito: ${updatedMovie.favorito}
+            Status: ${updatedMovie.status}
             """);
     } else {
-      print('Falha ao atualizar o filme: ${response.statusCode}');
+      print('Falha ao atualizar o moviee: ${response.statusCode}');
     }
   } catch (e) {
-    print('Erro ao atualizar o filme: $e');
+    print('Erro ao atualizar o moviee: $e');
   }
 }
 
-Future<void> postFilm(
+Future<void> postMovie(
   String userId,
   String titulo,
   String descricao,
@@ -147,7 +135,7 @@ Future<void> postFilm(
   String status,
 ) async {
   try {
-    final film = FilmModel(
+    final movie = MovieModel(
       titulo: titulo,
       descricao: descricao,
       linkImagem: linkImagem,
@@ -166,54 +154,54 @@ Future<void> postFilm(
     dio.options.followRedirects = false;
 
     final response = await dio.post(
-      'https://apiloomi.onrender.com/filme/user/$userId/',
-      data: film.toJson(),
+      'https://apiloomi.onrender.com/moviee/user/$userId/',
+      data: movie.toJson(),
       options: Options(
         contentType: 'application/json; charset=UTF-8',
       ),
     );
 
     if (response.statusCode == 201) {
-      final createdFilm = FilmModel.fromJson(response.data);
-      print("""Novo filme criado:
-            Título: ${createdFilm.titulo}
-            Descrição: ${createdFilm.descricao}
-            Imagem: ${createdFilm.linkImagem}
-            Data de Lançamento: ${createdFilm.dataDeLancamento}
-            Diretor(s): ${createdFilm.diretores}
-            Roteirista(s): ${createdFilm.roteiristas}
-            Atores(as): ${createdFilm.atores}
-            Generos: ${createdFilm.generos}
-            Comentários: ${createdFilm.comentarios}
-            Estrelas: ${createdFilm.estrelas}
-            Favorito: ${createdFilm.favorito}
-            Status: ${createdFilm.status}
+      final createdMovie = MovieModel.fromJson(response.data);
+      print("""Novo moviee criado:
+            Título: ${createdMovie.titulo}
+            Descrição: ${createdMovie.descricao}
+            Imagem: ${createdMovie.linkImagem}
+            Data de Lançamento: ${createdMovie.dataDeLancamento}
+            Diretor(s): ${createdMovie.diretores}
+            Roteirista(s): ${createdMovie.roteiristas}
+            Atores(as): ${createdMovie.atores}
+            Generos: ${createdMovie.generos}
+            Comentários: ${createdMovie.comentarios}
+            Estrelas: ${createdMovie.estrelas}
+            Favorito: ${createdMovie.favorito}
+            Status: ${createdMovie.status}
             """);
     } else {
-      print('Falha ao criar filme: ${response.statusCode}');
+      print('Falha ao criar moviee: ${response.statusCode}');
     }
   } catch (e) {
-    print('Erro ao criar filme: $e');
+    print('Erro ao criar moviee: $e');
   }
 }
 
-Future<void> deleteFilm(String userId, String filmId) async {
+Future<void> deleteMovie(String userId, String filmeId) async {
   try {
     final Dio dio = Dio();
     final response = await dio.delete(
-      'https://apiloomi.onrender.com/filme/$filmId/user/$userId/',
+      'https://apiloomi.onrender.com/moviee/$filmeId/user/$userId/',
       options: Options(
         contentType: 'application/json; charset=UTF-8',
       ),
     );
 
     if (response.statusCode == 204) {
-      print('Filme removido com sucesso!');
+      print('Moviee removido com sucesso!');
     } else {
-      print('Falha ao excluir filme: ${response.statusCode}');
+      print('Falha ao excluir moviee: ${response.statusCode}');
     }
   } catch (e) {
-    print('Erro ao excluir filme: $e');
+    print('Erro ao excluir moviee: $e');
   }
 }
 
@@ -237,8 +225,8 @@ Future<void> login(String username, String password) async {
       final loginResponse = LoginResponse.fromJson(response.data);
       print('Login bem sucedido. ID do usuário: ${loginResponse.id}');
 
-      final userStore = UserController();
-      userStore.saveUserId(loginResponse.id.toString());
+      final userStorage = UserController();
+      userStorage.saveUserId(loginResponse.id.toString());
       print(loginResponse.id.toString());
     } else {
       print('Falha ao realizar login: ${response.statusCode}');

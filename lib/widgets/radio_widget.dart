@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gengarbook/provider/radioProvider.dart';
+import 'package:gengarmovies/provider/radio_provider.dart';
 
-class radioWidget extends ConsumerWidget {
-  const radioWidget({
+class RadioWidget extends ConsumerWidget {
+  const RadioWidget({
     Key? key,
     required this.radioTxt,
     this.statusColor,
@@ -28,11 +28,11 @@ class radioWidget extends ConsumerWidget {
           activeColor: statusColor,
           contentPadding: EdgeInsets.zero,
           title: Transform.translate(
-            offset: Offset(-22, 0),
+            offset: const Offset(-22, 0),
             child: Text(
-              this.radioTxt,
+              radioTxt,
               style: TextStyle(
-                color: this.statusColor,
+                color: statusColor,
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-class customTextField extends StatelessWidget {
-  const customTextField({
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({
     Key? key,
     this.hintTxt,
     this.maxLines,
@@ -21,12 +21,12 @@ class customTextField extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.grey.shade200, borderRadius: BorderRadius.circular(8)),
       child: TextField(
-        maxLength: this.maxLength,
-        maxLines: this.maxLines,
+        maxLength: maxLength,
+        maxLines: maxLines,
         decoration: InputDecoration(
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
-          hintText: this.hintTxt,
+          hintText: hintTxt,
         ),
       ),
     );

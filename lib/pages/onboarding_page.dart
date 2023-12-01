@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gengarbook/common/appCollors.dart';
-import 'package:gengarbook/common/styleTxt.dart';
-import 'package:gengarbook/widgets/customButton.dart';
+import 'package:gengarmovies/common/style_colors.dart';
+import 'package:gengarmovies/common/style_text.dart';
+import 'package:gengarmovies/widgets/custom_button.dart';
 
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key});
@@ -18,16 +18,16 @@ class OnboardPage extends StatelessWidget {
             ),
             Expanded(
               child: Image.asset(
-                'assets/gengar_splash.png',
-                scale: 3,
+                'assets/gengar.png',
+                scale: 7,
               ),
             ),
             const Text(
-              "GengarFilm",
+              "GengarMovie",
               style: AppStyle.charText,
             ),
             const Text(
-              "Seu App de Filmes",
+              "Seu App de Moviees",
               style: AppStyle.charText,
             ),
             Padding(
@@ -35,7 +35,7 @@ class OnboardPage extends StatelessWidget {
               child: CustomButton(
                 text: 'Entrar',
                 onPressed: () => {
-                  {Navigator.of(context).pushNamed('login')},
+                  {Navigator.of(context).pushReplacementNamed('login')},
                 },
               ),
             ),
