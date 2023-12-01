@@ -1,5 +1,3 @@
-import 'dart:html';
-
 class FilmModel {
   String? uuid;
   int? usuario;
@@ -67,5 +65,4 @@ class FilmModel {
     data['status'] = status;
     return data;
   }
-
 }

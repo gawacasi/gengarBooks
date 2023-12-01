@@ -45,7 +45,7 @@ class newBookModel extends ConsumerWidget {
           const Gap(12),
           const Text(
             'Titulo do Filme',
-            style: appStyle.headingText,
+            style: AppStyle.headingText,
           ),
           const Gap(6),
           customTextField(
@@ -54,7 +54,7 @@ class newBookModel extends ConsumerWidget {
           const Gap(12),
           Text(
             'Link de Imagem',
-            style: appStyle.headingText,
+            style: AppStyle.headingText,
           ),
           const Gap(6),
           customTextField(
@@ -63,7 +63,7 @@ class newBookModel extends ConsumerWidget {
           const Gap(12),
           Text(
             'Descrição',
-            style: appStyle.headingText,
+            style: AppStyle.headingText,
           ),
           const Gap(6),
           customTextField(
@@ -74,7 +74,7 @@ class newBookModel extends ConsumerWidget {
           Gap(12),
           Text(
             'Status',
-            style: appStyle.headingText,
+            style: AppStyle.headingText,
           ),
           Row(
             children: [
@@ -186,7 +186,9 @@ class newBookModel extends ConsumerWidget {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    {}
+                  },
                   child: const Text(
                     'Concluir',
                     style: TextStyle(

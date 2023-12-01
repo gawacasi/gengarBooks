@@ -23,7 +23,7 @@ class dateTimeWidget extends ConsumerWidget {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
           this.dateTimeText,
-          style: appStyle.headingText,
+          style: AppStyle.headingText,
         ),
         const Gap(6),
         Material(
